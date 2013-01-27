@@ -2,6 +2,7 @@ FILES= \
 	node_modules
 
 build: $(FILES)
+	chmod +x ./index.js
 
 clean:
 	rm -rf $(FILES)
@@ -9,9 +10,9 @@ clean:
 check: node_modules
 	find . \( -name '*.js' -or -name '*.json' \) \
 	-and -not -path './node_modules/*' \
-	-exec node_modules/.bin/jslint -indent 2 {} \;
+	-exec jshint {} \;
 
 node_modules: package.json
 	npm install
 
-.PHONY: install clean
+.PHONY: build clean check
