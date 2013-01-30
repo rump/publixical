@@ -1,30 +1,21 @@
 #!/usr/bin/env node
 "use strict";
-
 var config = require('./config');
-var routes = require('./routes');
 var express = require('express');
+var fs = require('fs');
 
-var app = express();
+var app = module.exports = express();
 app.locals.config = config;
-app.use(express.bodyParser());
-if (process.env.NODE_ENV === 'development') {
+app.set('view engine', 'ejs');
+
+if (app.get('env') === 'development') {
   app.use(express.logger('dev'));
 }
+app.use(express['static']('./public'));
+app.use(express.bodyParser());
 
-app.get('/', function (req, res) {
-  return res.render('index.ejs');
-});
-
-app.post('/', function (req, res) {
-  if (!req.body.username || !req.body.password) {
-    return res.render('oops.ejs');
-  }
-  res.redirect('/ical');
-});
-
-app.get('/ical', function (req, res) {
-  res.end('hello world');
+fs.readdirSync('./routes').forEach(function (file) {
+  require('./routes/' + file);
 });
 
 app.listen(config.port);
