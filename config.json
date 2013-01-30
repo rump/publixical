@@ -1,4 +1,5 @@
 {
+  "name": "Publix iCal",
   "port": 8020,
   "secret": "secret"
 }

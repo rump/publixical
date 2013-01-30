@@ -2,12 +2,12 @@ FILES= \
 	node_modules
 
 build: $(FILES)
-	chmod +x ./index.js
+	chmod +x index.js
 
 clean:
-	rm -rf $(FILES)
+	rm -fr $(FILES)
 
-check: node_modules
+check:
 	find . \( -name '*.js' -or -name '*.json' \) \
 	-and -not -path './node_modules/*' \
 	-exec jshint {} \;
