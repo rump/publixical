@@ -1,35 +1,24 @@
 <% include header %>
 
-<form method="post">
-  <input type="text" name="u" placeholder="Username" required="true" autofocus>
-  <input type="password" name="p" placeholder="Password" required="true">
-  <input type="submit" value="Subscribe">
-</form>
+<div class="hero">
+  <h1><%- settings.name %></h1>
+  <form method="post">
+    <input type="text" name="u" placeholder="Username" required="true" autofocus>
+    <input type="password" name="p" placeholder="Password" required="true">
+    <input type="submit" value="Subscribe">
+  </form>
+</div>
 
-<div>
-  <h2>What would you do?</h2>
-  <p>
-    Blah blah blah blah blah blah blah. Blah blah blah blah blah blah blah.
-    Blah blah blah blah blah blah blah. Blah blah blah blah blah blah blah.
-  </p>
-
-  <h2>What would you do?</h2>
-  <p>
-    Blah blah blah blah blah blah blah. Blah blah blah blah blah blah blah.
-    Blah blah blah blah blah blah blah. Blah blah blah blah blah blah blah.
-  </p>
-
-  <h2>What would you do?</h2>
-  <p>
-    Blah blah blah blah blah blah blah. Blah blah blah blah blah blah blah.
-    Blah blah blah blah blah blah blah. Blah blah blah blah blah blah blah.
-  </p>
-
-  <h2>What would you do?</h2>
-  <p>
-    Blah blah blah blah blah blah blah. Blah blah blah blah blah blah blah.
-    Blah blah blah blah blah blah blah. Blah blah blah blah blah blah blah.
-  </p>
+<div class="content">
+  <h3>What is this?</h3>
+  <p>It's a little tool designed for Publix employees. It magically makes their work schedule available on any smartphone or computer calendar. Neat, right?</p>
+  <h3>What's my username and password?</h3>
+  <p>Try using the same username and password that you use to login to the Publix osasis backend.</p>
+  <h3>I'm technical, tell me what's up!</h3>
+  <p>Well, we take your credentials and encrypt them with AES256. Then we simply proxy a request to Publix's backend, without even storing any data.</p>
+  <p>From there we navigate to a few pages and parse out the relevant schedule information and then spit it out in the iCalendar format, for your viewing pleasure.</p>
+  <h3>Who are you?</h3>
+  <p>Employees! Just like you :) Hey, drop us a line at <a href="mailto:webmaster@?subject=Publix%20iCal" rel="nofollow">webmaster @ this domain</a>. Don't forget to fill in the domain!</p>
 </div>
 
 <% include footer %>

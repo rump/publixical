@@ -1,9 +1,24 @@
 <% include header %>
 
-<form action="/">
-  <h2>404 <span>(fore · oh · no!)</span></h2>
-  <p>That username and password didn't work. Sorry!</p>
-  <input type="submit" value="Try again!">
-</form>
+<div class="hero">
+  <h1><%- settings.name %></h1>
+  <form action="/">
+    <h2>404</h2>
+    <strong>(fore · oh · no!)</strong>
+    <div class="letter">
+      <p>Dear friend,</p>
+      <p>It is with extreme sadness that we regretfully inform you that... something broke.</p>
+      <p>Possible causes are:</p>
+      <ul>
+        <li>Incorrect username or password</li>
+        <li>The Publix backend is busted</li>
+        <li>Acts of a higher power</li>
+      </ul>
+      <p>Stay strong, we can get through this together.</p>
+      <p>Sincerely,<br><%- settings.name %></p>
+    </div>
+    <input type="submit" value="Try again!">
+  </form>
+</div>
 
 <% include footer %>
