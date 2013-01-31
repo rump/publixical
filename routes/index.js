@@ -9,15 +9,14 @@ app.get('/', function (req, res) {
 
 
 app.post('/', express.bodyParser(), function (req, res, next) {
-  if (!req.body.u || !req.body.p) {
+  var host = req.headers.host || app.settings.host + ":" + app.settings.port;
+  var secret = require('../lib/secret').cipher;
+  var u = secret(req.body.u);
+  var p = secret(req.body.p);
+
+  if (!u || !p) {
     return next();
   }
 
-  var secret = require('../lib/secret').cipher;
-  var host = req.headers.host || app.settings.host + ":" + app.settings.port;
-
-  return res.redirect('webcal://' + host + '/webcal' +
-    '?u=' + secret(req.body.u) +
-    '&p=' + secret(req.body.p)
-  );
+  return res.redirect('webcal://' + host + '/webcal' + '?u=' + u + '&p=' + p);
 });
