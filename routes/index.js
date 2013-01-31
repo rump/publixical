@@ -9,12 +9,12 @@ app.get('/', function (req, res) {
 
 
 app.post('/', express.bodyParser(), function (req, res, next) {
-  var secret = require('../lib/secret').cipher;
-  var host = req.headers.host || app.settings.host + ":" + app.settings.port;
-
   if (!req.body.u || !req.body.p) {
     return next();
   }
+
+  var secret = require('../lib/secret').cipher;
+  var host = req.headers.host || app.settings.host + ":" + app.settings.port;
 
   return res.redirect('webcal://' + host + '/webcal' +
     '?u=' + secret(req.body.u) +

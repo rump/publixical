@@ -7,5 +7,9 @@ app.get('/webcal', function (req, res, next) {
     return next();
   }
 
+  var secret = require('../lib/secret').decipher;
+
+
+
   return res.render('webcal');
 });
