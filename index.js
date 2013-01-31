@@ -1,22 +1,24 @@
 #!/usr/bin/env node
 "use strict";
-var config = require('./config');
 var express = require('express');
 var fs = require('fs');
 
 var app = module.exports = express();
-app.locals.config = config;
-app.set('view engine', 'ejs');
+var config = require('./config');
+for (var config_key in config) {
+  app.set(config_key, config[config_key]);
+}
 
+app.use(express['static']('./public'));
+app.use(express.bodyParser());
 if (app.get('env') === 'development') {
   app.use(express.logger('dev'));
 }
-app.use(express['static']('./public'));
-app.use(express.bodyParser());
 
+app.use(app.router);
 fs.readdirSync('./routes').forEach(function (file) {
   require('./routes/' + file);
 });
 
-app.listen(config.port);
+app.listen(app.get('port'));
 console.log('OK');

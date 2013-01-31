@@ -1,5 +1,9 @@
 {
   "name": "Publix iCal",
+  "host": "localhost",
   "port": 8020,
-  "secret": "secret"
+  "secret": "secret",
+  "strict routing": true,
+  "view engine": "ejs",
+  "x-powered-by": false
 }
