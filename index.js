@@ -10,7 +10,6 @@ for (var config_key in config) {
 }
 
 app.use(express['static']('./public'));
-app.use(express.bodyParser());
 if (app.get('env') === 'development') {
   app.use(express.logger('dev'));
 }

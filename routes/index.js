@@ -1,14 +1,14 @@
 'use strict';
+var express = require('express');
 var app = require('..');
 
 
 app.get('/', function (req, res) {
-  console.log(req);
   return res.render('index');
 });
 
 
-app.post('/', function (req, res, next) {
+app.post('/', express.bodyParser(), function (req, res, next) {
   var secret = require('../lib/secret').cipher;
   var host = req.headers.host || app.settings.host + ":" + app.settings.port;
 
@@ -16,9 +16,8 @@ app.post('/', function (req, res, next) {
     return next();
   }
 
-  return res.redirect('webcal://' +
-    req.headers.host +
-    '/webcal' +
-    '?u=' + secret(req.body.u, app.settings.secret) +
-    '&p=' + secret(req.body.p, app.settings.secret));
+  return res.redirect('webcal://' + host + '/webcal' +
+    '?u=' + secret(req.body.u) +
+    '&p=' + secret(req.body.p)
+  );
 });
