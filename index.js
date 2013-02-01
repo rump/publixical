@@ -11,7 +11,7 @@ for (var config_key in config) {
 
 app.use(express['static']('./public'));
 if (app.get('env') === 'development') {
-  app.use(express.logger('dev'));
+  app.use(express.logger());
 }
 
 app.use(app.router);
