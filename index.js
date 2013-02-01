@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-"use strict";
+'use strict';
 var express = require('express');
 var fs = require('fs');
 

@@ -14,7 +14,10 @@ app.get('/webcal', function (req, res, next) {
 
   // series
   publix.login(null, u, p, function (err) {
-    if (err) throw err;
+    if (err) {
+      res.locals.err = err.message;
+      next();
+    }
   });
 
   return res.render('webcal', {

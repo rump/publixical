@@ -141,6 +141,11 @@ input[type=submit]:hover {
   text-align: center;
 }
 
+.hl {
+  background-color: lightyellow;
+  padding: 0.25em;
+}
+
 .letter {
   margin: 2em 0;
   font-family: cursive;
