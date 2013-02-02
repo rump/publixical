@@ -17,6 +17,6 @@ app.post('/', express.bodyParser(), function (req, res, next) {
 
   publix.login(u, p, function (err) {
     if (err) return next(err);
-    return res.redirect('webcal://' + host + '/webcal' + '?u=' + secret(u, app.settings.secret) + '&p=' + secret(p, app.settings.secret));
+    return res.redirect('webcal://' + host + '/webcal.ics' + '?u=' + secret(u, app.settings.secret) + '&p=' + secret(p, app.settings.secret));
   });
 });

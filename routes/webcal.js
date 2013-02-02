@@ -2,7 +2,7 @@
 var app = require('..');
 
 
-app.get('/webcal', function (req, res, next) {
+app.get('/webcal.ics', function (req, res, next) {
   var publix = require('../lib/publix');
   var secret = require('../lib/secret').decipher;
   var u = secret(req.query.u, app.settings.secret);
@@ -18,7 +18,7 @@ app.get('/webcal', function (req, res, next) {
       publix.parse(agent.text, function (err, events) {
         if (err) return next(err);
 
-        res.setHeader('content-type', 'text/plain');
+        res.setHeader('content-type', 'text/calendar');
         return res.render('webcal', { events: events });
       });
     });
