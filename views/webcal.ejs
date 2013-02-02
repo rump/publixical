@@ -1,11 +1,29 @@
-username: <%= u %>
-password: <%= p %>
-
-<% for (var i = 0; i < events.length; i++) { %>
-  date: <%= events[i].date %>
-  time: <%= events[i].time %>
-  position: <%= events[i].position %>
-  location: <%= events[i].location %>
-  meals: <%= events[i].meals %>
-  hours: <%= events[i].hours %>
-<% } %>
+BEGIN:VCALENDAR
+PRODID:-//<%- settings.host %>//NONSGML <%- settings.name %>//EN
+VERSION:2.0
+X-WR-CALNAME:<%- settings.name %>
+<% for (var i = 0; i < events.length; i++) { -%>
+BEGIN:VEVENT
+UID:<%- events[i].timestamp %>-<%- events[i].rand %>@<%- settings.host %>
+DTSTAMP:<%- events[i].timestamp %>
+DTSTART:<%- events[i].datetime_begin %>
+DTEND:<%- events[i].datetime_end %>
+SUMMARY:Publix
+DESCRIPTION:Position: <%- events[i].position %>\n
+ Meals: <%- events[i].meals %>\n
+ Hours: <%- events[i].hours %>
+LOCATION:Store #<%- events[i].location %>
+CATEGORIES:Publix,Work
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:AUDIO
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:Publix\n
+ <%- events[i].position %> @ <%- events[i].location %>
+END:VALARM
+END:VEVENT
+<% } -%>
+END:VCALENDAR

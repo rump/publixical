@@ -18,13 +18,8 @@ app.get('/webcal', function (req, res, next) {
       publix.parse(agent.text, function (err, events) {
         if (err) return next(err);
 
-
         res.setHeader('content-type', 'text/plain');
-        return res.render('webcal', {
-          u: u,
-          p: p,
-          events: events
-        });
+        return res.render('webcal', { events: events });
       });
     });
   });
