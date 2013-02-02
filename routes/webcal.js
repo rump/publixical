@@ -5,23 +5,26 @@ var app = require('..');
 app.get('/webcal', function (req, res, next) {
   var publix = require('../lib/publix');
   var secret = require('../lib/secret').decipher;
-  var u = secret(req.query.u);
-  var p = secret(req.query.p);
-
-  if (!u || !p) {
-    return next();
-  }
+  var u = secret(req.query.u, app.settings.secret);
+  var p = secret(req.query.p, app.settings.secret);
 
   // series
-  publix.login(null, u, p, function (err) {
-    if (err) {
-      res.locals.err = err.message;
-      next();
-    }
-  });
+  publix.login(u, p, function (err, agent) {
+    if (err) return next(err);
 
-  return res.render('webcal', {
-    u: u,
-    p: p
+    publix.schedule(agent, function (err, agent) {
+      if (err) return next(err);
+
+      publix.parse(agent.text, function (err, events) {
+        if (err) return next(err);
+
+
+        return res.render('webcal', {
+          u: u,
+          p: p,
+          events: events
+        });
+      });
+    });
   });
 });

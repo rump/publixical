@@ -15,17 +15,8 @@ app.post('/', express.bodyParser(), function (req, res, next) {
   var u = req.body.u;
   var p = req.body.p;
 
-  if (!u || !p) {
-    res.locals.err = 'A username and password might be required.';
-    return next();
-  }
-
-  publix.login(null, u, p, function (err) {
-    if (err && err.message === '401') {
-      res.locals.err = 'Invalid username or password.';
-      return next();
-    }
-
-    return res.redirect('webcal://' + host + '/webcal' + '?u=' + secret(u) + '&p=' + secret(p));
+  publix.login(u, p, function (err) {
+    if (err) return next(err);
+    return res.redirect('webcal://' + host + '/webcal' + '?u=' + secret(u, app.settings.secret) + '&p=' + secret(p, app.settings.secret));
   });
 });
