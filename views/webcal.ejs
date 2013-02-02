@@ -1,4 +1,11 @@
-hello world
 username: <%= u %>
 password: <%= p %>
-events: <%= events %>
+
+<% for (var i = 0; i < events.length; i++) { %>
+  date: <%= events[i].date %>
+  time: <%= events[i].time %>
+  position: <%= events[i].position %>
+  location: <%= events[i].location %>
+  meals: <%= events[i].meals %>
+  hours: <%= events[i].hours %>
+<% } %>

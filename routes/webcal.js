@@ -19,6 +19,7 @@ app.get('/webcal', function (req, res, next) {
         if (err) return next(err);
 
 
+        res.setHeader('content-type', 'text/plain');
         return res.render('webcal', {
           u: u,
           p: p,
