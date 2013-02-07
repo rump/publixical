@@ -52,13 +52,13 @@ h3 {
 blockquote {
   color: lightslategray;
   font: italic 1em/1.5em georgia, serif;
+  margin: 1em 0 0 0;
   text-align: right;
 }
 
 blockquote::before {
   content: "“";
   font: bold 4em/1em georgia, serif;
-  margin-right: 10px;
   float: left;
 }
 
@@ -164,4 +164,10 @@ input[type=submit]:hover {
 .letter {
   margin: 2em 0;
   font-family: cursive;
+}
+
+.quote-footer {
+  color: lightgray;
+  font: lighter 0.5em/1.5em ariel, sans-serif;
+  text-align: right;
 }
