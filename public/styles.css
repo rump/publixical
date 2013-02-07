@@ -105,8 +105,16 @@ input[type=password] {
   font-size: 1.5em;
   margin: 0 auto 0.5em auto;
   padding: 0.25em 0;
-  text-indent: 0.5em;
+  text-indent: 40px;
   width: 100%;
+}
+
+input[type=text] {
+  background: transparent url('l.png') no-repeat 10px center;
+}
+
+input[type=password] {
+  background: transparent url('p.png') no-repeat 10px center;
 }
 
 input[type=submit] {
