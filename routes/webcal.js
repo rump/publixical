@@ -15,12 +15,12 @@ app.get('/webcal.ics', function (req, res, next) {
     publix.schedule(agent, function (err, agent) {
       if (err) return next(err);
 
-      publix.parse(agent.text, function (err, events) {
+      publix.parse(agent.text, function (err, employee, events) {
         if (err) return next(err);
 
-        res.setHeader('content-type', 'text/calendar');
-        // res.setHeader('content-type', 'text/plain');
-        return res.render('webcal', { events: events });
+        // res.setHeader('content-type', 'text/calendar');
+        res.setHeader('content-type', 'text/plain');
+        return res.render('webcal', { employee: employee, events: events });
       });
     });
   });
