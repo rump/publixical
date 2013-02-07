@@ -49,6 +49,19 @@ h3 {
   margin: 2.5em 0 0 0;
 }
 
+blockquote {
+  color: lightslategray;
+  font: italic 1em/1.5em georgia, serif;
+  text-align: right;
+}
+
+blockquote::before {
+  content: "“";
+  font: bold 4em/1em georgia, serif;
+  margin-right: 10px;
+  float: left;
+}
+
 li {
   text-align: left;
 }
@@ -73,7 +86,7 @@ a:visited {
 .content {
   background: honeydew;
   margin: 0 auto;
-  padding: 0 1em 4em 1em;
+  padding: 2em 1em 4em 1em;
   max-width: 640px;
   text-align: left;
 }
@@ -138,6 +151,7 @@ input[type=submit]:hover {
 .footer p {
   color: gray;
   font-size: 0.5em;
+  line-height: 1em;
   text-align: center;
 }
 

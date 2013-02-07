@@ -5,5 +5,8 @@
   "secret": "secret",
   "strict routing": true,
   "view engine": "ejs",
-  "x-powered-by": false
+  "x-powered-by": false,
+  "quotes": [
+    "My boss <strong>insists</strong> we use this and I can't blame him because I haven't been late to work since. ~ Tom, Produce"
+  ]
 }

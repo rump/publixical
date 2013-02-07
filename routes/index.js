@@ -4,7 +4,8 @@ var app = require('..');
 
 
 app.get('/', function (req, res) {
-  return res.render('index');
+  var quote = app.settings.quotes[Math.floor(Math.random() * app.settings.quotes.length)];
+  return res.render('index', { quote: quote });
 });
 
 
