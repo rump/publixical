@@ -21,4 +21,9 @@ fs.readdirSync('./routes').forEach(function (file) {
 });
 
 app.listen(app.get('port'));
+
+process.title = 'publixical';
+process.setgid('www-data');
+process.setuid('nobody');
+
 console.log('OK');

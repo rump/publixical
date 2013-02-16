@@ -1,0 +1,16 @@
+server {
+  listen 80;
+  server_name publixical.com;
+  access_log /var/log/nginx/publixical.log;
+  location / {
+    include proxy_params;
+    proxy_pass http://127.0.0.1:8010;
+  }
+}
+
+server {
+  listen 80;
+  server_name www.publixical.com;
+  return 301 http://publixical.com$request_uri;
+}
+
