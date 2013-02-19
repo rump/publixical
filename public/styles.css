@@ -110,11 +110,11 @@ input[type=password] {
 }
 
 input[type=text] {
-  background: transparent url('l.png') no-repeat 10px center;
+  background: transparent url(l.png) no-repeat 10px center;
 }
 
 input[type=password] {
-  background: transparent url('p.png') no-repeat 10px center;
+  background: transparent url(p.png) no-repeat 10px center;
 }
 
 input[type=submit] {
@@ -172,6 +172,49 @@ input[type=submit]:hover {
 .letter {
   margin: 2em 0;
   font-family: cursive;
+}
+
+.like {
+  text-align: center;
+}
+
+.like iframe {
+  margin: 3em auto -1.5em auto;
+  height: 21px;
+  width: 100px;
+}
+
+.social {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.social span {
+  background-image: url(social.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin: 0 1.5em;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  width: 32px;
+  height: 32px;
+}
+
+.thumbsup {
+  background-position: 0 0;
+}
+.twitter {
+  background-position: 0 -64px;
+}
+.facebook {
+  background-position: 0 -128px;
+}
+.googleplus {
+  background-position: 0 -192px;
+}
+.linkedin {
+  background-position: 0 -256px;
 }
 
 .quote-footer {
