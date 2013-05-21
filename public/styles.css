@@ -49,6 +49,10 @@ h3 {
   margin: 2.5em 0 0 0;
 }
 
+img {
+  box-shadow: 6px 6px 6px gray;
+}
+
 blockquote {
   color: lightslategray;
   font: italic 1em/1.5em georgia, serif;
@@ -161,6 +165,11 @@ input[type=submit]:hover {
   font-size: 0.5em;
   line-height: 1em;
   text-align: center;
+}
+
+.break {
+  word-break: break-all;
+  word-wrap: break-word;
 }
 
 .hl {

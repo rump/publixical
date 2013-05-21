@@ -10,7 +10,7 @@ for (var config_key in config) {
 }
 
 if (app.get('env') === 'development') {
-  app.use(express.logger());
+  app.use(express.logger('dev'));
 }
 
 if (app.get('env') === 'production') {

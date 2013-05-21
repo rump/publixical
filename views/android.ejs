@@ -1,0 +1,19 @@
+<% include header %>
+
+<div class="hero">
+  <h1><%- settings.name %></h1>
+  <form action="/">
+    <h2>Yes!</h2>
+    <br>
+    <p>We're almost there! Everything is set on our end but <em>Android</em> devices need a little help.</p>
+    <p><strong>Step 1:</strong> Login to <a href="http://www.google.com/calendar" rel="nofollow" target="_blank">Google Calendar</a>.</p>
+    <p><strong>Step 2:</strong> Select <span class="hl">Add by URL</span> under <span class="hl">Other calendars</span>.</p>
+    <img alt="Google Calendar's Add by URL" src="/gc1.jpg">
+    <p><strong>Step 3:</strong> Copy and paste your unique URL: <span class="hl break"><%- url %></span></p>
+    <img alt="Google Calendar's Add by URL" src ="/gc2.jpg">
+    <p>Now just make sure your Android device is set to sync with Google Calendar and enjoy!</p>
+    <input type="submit" value="Go back">
+  </form>
+</div>
+
+<% include footer %>

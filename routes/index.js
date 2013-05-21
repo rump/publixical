@@ -8,7 +8,6 @@ app.get('/', function (req, res) {
   return res.render('index', { quote: quote });
 });
 
-
 app.post('/', express.bodyParser(), function (req, res, next) {
   var host = req.headers.host || app.settings.host + ":" + app.settings.port;
   var publix = require('../lib/publix');
@@ -18,6 +17,11 @@ app.post('/', express.bodyParser(), function (req, res, next) {
 
   publix.login(u, p, function (err) {
     if (err) return next(err);
-    return res.redirect('webcal://' + host + '/webcal.ics' + '?u=' + secret(u, app.settings.secret) + '&p=' + secret(p, app.settings.secret));
+    var secret_u = secret(u, app.settings.secret);
+    var secret_p = secret(p, app.settings.secret);
+
+    if (/Android/i.test(req.headers['user-agent'])) return res.render('android', { url: req.protocol + '://' + host + '/webcal.ics' + '?<wbr>u=' + secret_u + '&amp;<wbr>p=' + secret_p });
+
+    return res.redirect('webcal://' + host + '/webcal.ics' + '?u=' + secret_u + '&p=' + secret_p);
   });
 });
