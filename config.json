@@ -1,7 +1,7 @@
 {
   "name": "Publix iCal",
   "host": "publixical.com",
-  "port": 8888,
+  "port": 8010,
   "secret": "secret",
   "strict routing": true,
   "trust proxy": true,
