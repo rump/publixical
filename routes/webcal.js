@@ -20,7 +20,7 @@ app.get('/webcal.ics', function (req, res, next) {
 
         res.setHeader('content-type', 'text/calendar');
         // res.setHeader('content-type', 'text/plain');
-        return res.render('webcal', { employee: employee, events: events });
+        return res.render('webcal', { employee: employee, events: events, tz: req.query.tz });
       });
     });
   });

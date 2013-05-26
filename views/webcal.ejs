@@ -2,6 +2,7 @@ BEGIN:VCALENDAR
 PRODID:-//<%- settings.host %>//NONSGML <%- settings.name %>//EN
 VERSION:2.0
 X-WR-CALNAME:<%- employee %>'s Publix Schedule
+<% if (tz) { -%>X-WR-TIMEZONE:<%- tz + '\n' %><% } -%>
 <% for (var i = 0; i < events.length; i++) { -%>
 BEGIN:VEVENT
 UID:<%- events[i].timestamp %>-<%- events[i].rand %>@<%- settings.host %>
