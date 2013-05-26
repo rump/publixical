@@ -9,8 +9,8 @@ DTSTAMP:<%- events[i].timestamp %>
 DTSTART:<%- events[i].datetime_begin %>
 DTEND:<%- events[i].datetime_end %>
 SUMMARY:Publix
-DESCRIPTION:Position: <%- events[i].position %>\r\n
- Meals: <%- events[i].meals %>\r\n
+DESCRIPTION:Position: <%- events[i].position %>\n
+ Meals: <%- events[i].meals %>\n
  Hours: <%- events[i].hours %>
 LOCATION:Store <%- events[i].location %>
 BEGIN:VALARM
@@ -20,7 +20,7 @@ END:VALARM
 BEGIN:VALARM
 TRIGGER:-PT1H
 ACTION:DISPLAY
-DESCRIPTION:Publix\r\n
+DESCRIPTION:Publix\n
  <%- events[i].position %> @ <%- events[i].location %>
 END:VALARM
 END:VEVENT
