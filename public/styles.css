@@ -173,7 +173,7 @@ input[type=submit]:hover {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .hl {
@@ -234,29 +234,4 @@ input[type=submit]:hover {
   color: lightgray;
   font: lighter 0.5em/1.5em ariel, sans-serif;
   text-align: right;
-}
-
-#throbber {
-  position: relative;
-  top: 40%;
-}
-#throbber img {
-  box-shadow: none;
-}
-#throbber p {
-  color: black;
-  font: bold 2em/1em comic sans ms, sans-serif;
-  margin: 0;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-#overlay {
-  background-color: rgba(99, 99, 99, 0.33);
-  height: 100%;
-  left: 0;
-  position: fixed;
-  text-align: center;
-  top: 0;
-  width: 100%;
 }
