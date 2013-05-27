@@ -5,7 +5,7 @@
   <form method="post">
     <input type="text" name="u" placeholder="Username" required autofocus>
     <input type="password" name="p" placeholder="Password" required>
-    <input type="submit" value="Subscribe">
+    <input id="subscribe" type="submit" value="Subscribe">
   </form>
   <!--
   <div class="like"><iframe src="//www.facebook.com/plugins/like.php?layout=button_count&href=https%3A%2F%2Fwww.facebook.com/publixical" allowTransparency frameborder="0"></iframe></div>
@@ -37,6 +37,13 @@
   <a href="//twitter.com/share?url=http%3A%2F%2Fpublixical.com&text=Publix%20iCal" target="_blank" title="Share to Twitter"><span class="twitter">Twitter</span></a>
   <a href="//plus.google.com/share?url=http%3A%2F%2Fpublixical.com" target="_blank" title="Share to Google+"><span class="googleplus">Google+</span></a>
   <a href="//www.linkedin.com/shareArticle?url=http%3A%2F%2Fpublixical.com&title=Publix%20iCal" target="_blank" title="Share to LinkedIn"><span class="linkedin">LinkedIn</span></a>
+</div>
+
+<div id="overlay">
+  <div id="throbber" class="">
+    <img alt="Loading" src="/throbber.gif">
+    <p>Loading</p>
+  </div>
 </div>
 
 <% include footer %>
