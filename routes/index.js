@@ -20,7 +20,7 @@ app.post('/', express.bodyParser(), function (req, res, next) {
     var secret_u = secret(u, app.settings.secret);
     var secret_p = secret(p, app.settings.secret);
 
-    if (/Android/i.test(req.headers['user-agent'])) return res.render('android', { url: req.protocol + '://' + host + '/webcal.ics' + '?<wbr>u=' + secret_u + '&amp;<wbr>p=' + secret_p });
+    if (/Android/i.test(req.headers['user-agent'])) return res.render('android', { url: req.protocol + '://' + host + '/webcal.ics' + '<wbr>?u=' + secret_u + '<wbr>&amp;p=' + secret_p + '<wbr>' });
 
     return res.redirect('webcal://' + host + '/webcal.ics' + '?u=' + secret_u + '&p=' + secret_p);
   });
