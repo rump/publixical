@@ -197,6 +197,16 @@ input[type=submit]:hover {
   width: 100px;
 }
 
+.notice {
+  background-color: lightyellow;
+}
+.notice p {
+  color: gray;
+  margin: 0 auto;
+  padding: 1em;
+  max-width: 640px;
+}
+
 .social {
   text-align: center;
   margin-bottom: 2em;
