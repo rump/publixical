@@ -9,8 +9,9 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', express.bodyParser(), function (req, res, next) {
-  // disable
-  return next(new Error('403:Forbidden. This site is now offline.'));
+  if (app.settings.offline) {
+    return next(new Error('403:Forbidden. This site is now offline.'));
+  }
 
   var host = req.headers.host || app.settings.host + ":" + app.settings.port;
   var publix = require('../lib/publix');

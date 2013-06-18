@@ -7,6 +7,7 @@
   "trust proxy": true,
   "view engine": "ejs",
   "x-powered-by": false,
+  "offline": true,
   "quotes": [
     "My boss <strong>insists</strong> we use this and I can't blame him because I haven't been late to work since.<br>~ Tom, Produce"
   ]
