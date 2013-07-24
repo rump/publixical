@@ -8,9 +8,15 @@
 
 <div class="hero">
   <h1 itemprop="itemreviewed"><%- settings.name %></h1>
+  <% if (settings.offline) { -%>
   <form method="post" autocomplete="off">
-    <input type="text" name="u" placeholder="Username" required autofocus disabled>
-    <input type="password" name="p" placeholder="Password" required disabled>
+    <input type="text" name="u" placeholder="Username" disabled>
+    <input type="password" name="p" placeholder="Password" disabled>
+  <% } else { -%>
+  <form method="post">
+    <input type="text" name="u" placeholder="Username" required autofocus>
+    <input type="password" name="p" placeholder="Password" required>
+  <% } -%>
     <input id="subscribe" type="submit" value="Subscribe">
   </form>
   <div class="like"><iframe src="//www.facebook.com/plugins/like.php?layout=button_count&href=https%3A%2F%2Fwww.facebook.com/publixical" allowTransparency frameborder="0"></iframe></div>
